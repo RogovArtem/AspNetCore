@@ -39,6 +39,13 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers.Cache
         private readonly ILogger _logger;
         private readonly ConcurrentDictionary<CacheTagKey, Task<IHtmlContent>> _workers;
 
+        /// <summary>
+        /// Creates a new <see cref="DistributedCacheTagHelperService"/>.
+        /// </summary>
+        /// <param name="storage">The <see cref="DistributedCacheTagHelper"/>'s cache storage.</param>
+        /// <param name="formatter">The serializer used to store cache entries in the <paramref name="storage"/>.</param>
+        /// <param name="HtmlEncoder">The HTML encoder used to encode cache content.</param>
+        /// <param name="loggerFactory">The <see cref="ILoggerFactory"/>.</param>
         public DistributedCacheTagHelperService(
             IDistributedCacheTagHelperStorage storage,
             IDistributedCacheTagHelperFormatter formatter,

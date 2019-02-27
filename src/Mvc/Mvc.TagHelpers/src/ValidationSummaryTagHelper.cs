@@ -30,10 +30,16 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
         /// <inheritdoc />
         public override int Order => -1000;
 
+        /// <summary>
+        /// The <see cref="Rendering.ViewContext"/> of the executing view.
+        /// </summary>
         [HtmlAttributeNotBound]
         [ViewContext]
         public ViewContext ViewContext { get; set; }
 
+        /// <summary>
+        /// The <see cref="IHtmlGenerator"/> used to generate the <see cref="ValidationSummaryTagHelper"/>'s output.
+        /// </summary>
         [HtmlAttributeNotBound]
         protected IHtmlGenerator Generator { get; }
 

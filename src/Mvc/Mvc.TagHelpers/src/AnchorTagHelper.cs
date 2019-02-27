@@ -52,6 +52,9 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
         /// <inheritdoc />
         public override int Order => -1000;
 
+        /// <summary>
+        /// The <see cref="IHtmlGenerator"/> used to generate the <see cref="AnchorTagHelper"/>'s output.
+        /// </summary>
         protected IHtmlGenerator Generator { get; }
 
         /// <summary>

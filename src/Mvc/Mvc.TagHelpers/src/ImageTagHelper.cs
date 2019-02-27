@@ -47,8 +47,10 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
             IUrlHelperFactory urlHelperFactory)
             : base(urlHelperFactory, htmlEncoder)
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             HostingEnvironment = hostingEnvironment;
             Cache = cacheProvider.Cache;
+#pragma warning restore CS0618 // Type or member is obsolete
             FileVersionProvider = fileVersionProvider;
         }
 
@@ -73,8 +75,16 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
         [HtmlAttributeName(AppendVersionAttributeName)]
         public bool AppendVersion { get; set; }
 
+        /// <summary>
+        /// The <see cref="IWebHostEnvironment"/> for the application.
+        /// </summary>
+        [Obsolete("The " + nameof(ImageTagHelper) + " no longer requires the hosting environment.")]
         protected internal IWebHostEnvironment HostingEnvironment { get; }
 
+        /// <summary>
+        /// The cache used to store globbed urls.
+        /// </summary>
+        [Obsolete("The " + nameof(ImageTagHelper) + " no longer requires a memory cache.")]
         protected internal IMemoryCache Cache { get; }
 
         internal IFileVersionProvider FileVersionProvider { get; private set; }
